@@ -7,11 +7,20 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Logic Games"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetAndroid"
         tools:targetApi="31">
+        <activity
+            android:name=".Niveau1"
+            android:exported="false" />
+        <activity
+            android:name=".Niveau"
+            android:exported="false" />
+        <activity
+            android:name=".Difficultes"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -5,63 +5,75 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Difficultes">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/retour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:contentDescription="bouton retour"
+        android:onClick="retour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/en_arriere" />
 
     <Button
-        android:id="@+id/jouer"
+        android:id="@+id/difficulte"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginStart="130dp"
         android:layout_marginTop="106dp"
         android:layout_marginEnd="131dp"
         android:layout_marginBottom="106dp"
-        android:onClick="jouer"
-        android:text="JOUER"
-        app:layout_constraintBottom_toTopOf="@+id/scoreboard"
+        android:clickable="false"
+        android:text="DIFFICULTE"
+        app:layout_constraintBottom_toTopOf="@+id/facile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/scoreboard"
+        android:id="@+id/facile"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginStart="130dp"
         android:layout_marginEnd="131dp"
         android:layout_marginBottom="106dp"
-        android:onClick="scoreboard"
-        android:text="SCOREBOARD"
-        app:layout_constraintBottom_toTopOf="@+id/connexion"
+        android:onClick="facile"
+        android:text="FACILE"
+        app:layout_constraintBottom_toTopOf="@+id/moyen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jouer" />
+        app:layout_constraintTop_toBottomOf="@+id/difficulte" />
 
     <Button
-        android:id="@+id/connexion"
+        android:id="@+id/moyen"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginStart="130dp"
         android:layout_marginEnd="131dp"
         android:layout_marginBottom="106dp"
-        android:onClick="connexion"
-        android:text="CONNEXION"
-        app:layout_constraintBottom_toTopOf="@+id/quitter"
+        android:onClick="moyen"
+        android:text="MOYEN"
+        app:layout_constraintBottom_toTopOf="@+id/difficile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scoreboard" />
+        app:layout_constraintTop_toBottomOf="@+id/facile" />
 
     <Button
-        android:id="@+id/quitter"
+        android:id="@+id/difficile"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginStart="130dp"
         android:layout_marginEnd="131dp"
         android:layout_marginBottom="106dp"
-        android:onClick="quitter"
-        android:text="QUITTER"
+        android:onClick="difficile"
+        android:text="DIFFICILE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/connexion" />
-
+        app:layout_constraintTop_toBottomOf="@+id/moyen" />
 </androidx.constraintlayout.widget.ConstraintLayout>
