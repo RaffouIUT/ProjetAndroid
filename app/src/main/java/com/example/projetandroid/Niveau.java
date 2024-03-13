@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Niveau extends AppCompatActivity {
 
+    private String difficulte;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +31,7 @@ public class Niveau extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        String difficulte = intent.getStringExtra(DIFFICULTE);
+        difficulte = intent.getStringExtra(DIFFICULTE);
         NIVEAU = intent.getStringExtra(NIVEAU);
 
         Button diffChoisie = findViewById(R.id.diffChoisie);
@@ -83,6 +83,7 @@ public class Niveau extends AppCompatActivity {
         ImageView niveau = (ImageView) view;
         String niv = niveau.getContentDescription().toString();
 
+        intent.putExtra(DIFFICULTE,difficulte);
         intent.putExtra(NIVEAU,niv);
 
         startActivity(intent);
