@@ -55,7 +55,7 @@
         android:layout_marginTop="250dp"
         android:clickable="true"
         android:contentDescription="niveau 1"
-        android:onClick="retourNiveau"
+        android:onClick="choixNiveau"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/une" />
