@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void jouer(View view){
         Intent intent = new Intent(this, Difficultes.class);
+        //Intent intent = new Intent(this, Niveau1.class);
 
         startActivity(intent);
     }

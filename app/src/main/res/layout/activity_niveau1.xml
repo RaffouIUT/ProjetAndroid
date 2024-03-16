@@ -7,33 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".Niveau1">
 
-    <Button
-        android:id="@+id/difficulte"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="131dp"
-        android:checkable="false"
-        android:clickable="false"
-        android:text="DIFFICULTE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/diffChoisie"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="131dp"
-        android:checkable="false"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/difficulte" />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/retour"
         android:layout_width="wrap_content"
@@ -47,56 +20,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/en_arriere" />
 
+    <TextView
+        android:id="@+id/levelName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/retour"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/retour" />
+
     <ImageView
-        android:id="@+id/niv1"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="250dp"
-        android:clickable="true"
-        android:contentDescription="niveau 1"
-        android:onClick="choixNiveau"
+        android:id="@+id/ball"
+        android:layout_width="110dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.707"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.794"
         app:srcCompat="@drawable/une" />
 
-    <ImageView
-        android:id="@+id/niv2"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="250dp"
-        android:clickable="false"
-        android:contentDescription="niveau 2"
-        android:onClick="retour"
-        android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/niv1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/deux" />
-
-    <ImageView
-        android:id="@+id/niv3"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="250dp"
-        android:clickable="false"
-        android:contentDescription="niveau 3"
-        android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/niv2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/trois" />
-
-    <ImageView
-        android:id="@+id/niv4"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="250dp"
-        android:clickable="false"
-        android:contentDescription="niveau 4"
-        android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/niv3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/quatre" />
 </androidx.constraintlayout.widget.ConstraintLayout>
