@@ -31,27 +31,77 @@
         app:layout_constraintTop_toTopOf="@+id/retour" />
 
     <ImageView
-        android:id="@+id/ball"
-        android:layout_width="110dp"
-        android:layout_height="90dp"
+        android:id="@+id/hoopback"
+        android:layout_width="203dp"
+        android:layout_height="197dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.707"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.794"
-        app:srcCompat="@drawable/une" />
+        app:layout_constraintTop_toBottomOf="@+id/levelName"
+        app:layout_constraintVertical_bias="0.068"
+        app:srcCompat="@drawable/panier" />
 
     <ImageView
-        android:id="@+id/bucket"
-        android:layout_width="273dp"
-        android:layout_height="300dp"
+        android:id="@+id/ball"
+        android:layout_width="87dp"
+        android:layout_height="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.971"
+        app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.858"
-        app:srcCompat="@android:drawable/ic_menu_delete" />
+        app:layout_constraintVertical_bias="0.79"
+        app:srcCompat="@drawable/ball" />
+
+    <View
+        android:id="@+id/bucket"
+        android:layout_width="150dp"
+        android:layout_height="154dp"
+        android:background="#FF0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.739"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.833" />
+
+    <ImageView
+        android:id="@+id/hoopfront"
+        android:layout_width="126dp"
+        android:layout_height="166dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="@+id/hoopback"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="@+id/hoopback"
+        app:layout_constraintTop_toTopOf="@+id/hoopback"
+        app:srcCompat="@drawable/hoop" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="171dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="206dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="269dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="232dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
