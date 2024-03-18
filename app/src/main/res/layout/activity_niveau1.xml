@@ -45,25 +45,13 @@
         android:id="@+id/ball"
         android:layout_width="87dp"
         android:layout_height="64dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.79"
+        app:layout_constraintBottom_toBottomOf="@+id/bucket"
+        app:layout_constraintEnd_toEndOf="@+id/bucket"
+        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintStart_toStartOf="@+id/bucket"
+        app:layout_constraintTop_toTopOf="@+id/bucket"
+        app:layout_constraintVertical_bias="0.649"
         app:srcCompat="@drawable/ball" />
-
-    <View
-        android:id="@+id/bucket"
-        android:layout_width="150dp"
-        android:layout_height="154dp"
-        android:background="#FF0000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.739"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.833" />
 
     <ImageView
         android:id="@+id/hoopfront"
@@ -103,5 +91,17 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="232dp" />
+
+    <ImageView
+        android:id="@+id/bucket"
+        android:layout_width="140dp"
+        android:layout_height="161dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.815"
+        app:srcCompat="@drawable/seau" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

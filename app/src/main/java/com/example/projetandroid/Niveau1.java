@@ -27,7 +27,7 @@ import android.util.Log;
 
 
 
-public class Niveau1 extends AppCompatActivity {
+public class Niveau1 extends AppCompatActivity{
 
     private String niveau = "";
     private String difficulte = "";
@@ -36,6 +36,8 @@ public class Niveau1 extends AppCompatActivity {
     private ImageView ball; // Renommer l'imageView en "ball"
     private ImageView hoopfront;
     private View bucket;
+
+    private float offset = 50;
 
 
 
@@ -48,6 +50,9 @@ public class Niveau1 extends AppCompatActivity {
     private boolean top_check = false;
     private boolean bottom_check = false ;
 
+    private boolean ball_bottom_entered = false;
+    private boolean ball_top_entered = false;
+
     private float hoop_y;
 
     private float ball_radius;
@@ -57,7 +62,6 @@ public class Niveau1 extends AppCompatActivity {
 
 
 
-    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -65,6 +69,20 @@ public class Niveau1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_niveau1);
+
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    @Override
+    protected void onStart() {
+        super.onStart();
+
 
         Intent intent = getIntent();
 
@@ -78,11 +96,27 @@ public class Niveau1 extends AppCompatActivity {
 
         // Ball
         ball = findViewById(R.id.ball);
-        ball_radius = (float) ball.getHeight() / 2;
-        ball.setVisibility(View.VISIBLE);
 
-        ball_t = new PointF(ball.getX(), ball.getY() - ball_radius);
-        ball_b = new PointF(ball.getX(), ball.getY() + ball_radius);
+        ball.post(new Runnable() {
+            @Override
+            public void run() {
+                ball_radius = (float) ball.getHeight() / 2;
+                ball.setVisibility(View.VISIBLE);
+
+                int[] location = new int[2];
+                ball.getLocationOnScreen(location);
+
+                int ball_x = location[0];
+                int ball_y = location[1];
+
+                Log.d("LEFT",  "hoop : " + ball_x );
+                ball_t = new PointF(ball.getX(), ball.getY() - ball_radius);
+                ball_b = new PointF(ball.getX(), ball.getY() + ball_radius);
+            }
+        });
+
+
+
 
 
 
@@ -90,10 +124,17 @@ public class Niveau1 extends AppCompatActivity {
 
         hoopfront = findViewById(R.id.hoopfront);
 
-        hoop_y = Math.round(hoopfront.getY()) - 62;
+        hoopfront.post(new Runnable() {
+            @Override
+            public void run() {
+                hoop_y = Math.round(hoopfront.getY()) - 62;
 
-        hoop_l = new PointF(Math.round(hoopfront.getX()) - 63, hoop_y);
-        hoop_r = new PointF(Math.round(hoopfront.getX()) + 63, hoop_y);
+                hoop_l = new PointF(Math.round(hoopfront.getX()) - 63, hoop_y);
+                hoop_r = new PointF(Math.round(hoopfront.getX()) + 63, hoop_y);
+
+            }
+        });
+
 
 
 
@@ -123,6 +164,8 @@ public class Niveau1 extends AppCompatActivity {
                         ball_t.y = ball.getY() - ball_radius;
                         ball_b.y = ball.getY() + ball_radius;
 
+                    
+
 
 
                         // Mettre à jour les nouvelles coordonnées de la balle
@@ -133,23 +176,40 @@ public class Niveau1 extends AppCompatActivity {
                         //Log.d("Y",  "Y : " + ball.getY() );
                         //Log.d("Y",  "X : " + ball.getX() );
 
-                        Log.d("LEFT",  "X : " + hoop_l.x );
-                        Log.d("LEFT",  "Y : " + hoop_l.y );
+                        //Log.d("LEFT",  "X : " + hoop_l.x );
+                        //Log.d("LEFT",  "Y : " + hoop_l.y );
 
-                        Log.d("RIGHT",  "X : " + hoop_r.x );
-                        Log.d("RIGHT",  "Y : " + hoop_r.y);
+                        //Log.d("RIGHT",  "X : " + hoop_r.x );
+                        //Log.d("RIGHT",  "Y : " + hoop_r.y);
+
+                        //Log.d("BALL",  "Y : " + Math.round(ball_b.y));
 
 
 
-                        if ( hoop_l.y == Math.round(ball_b.y) && Math.round(ball_b.x) < hoop_r.x && Math.round(ball_b.x) > hoop_l.x ){
-                            Log.d("test1",  "1 est validé : " );
-                            bottom_check = true;
 
+
+
+
+                        if (!ball_bottom_entered && checkPassThroughRim(ball.getX() - 63, ball_b.y)) {
+                            ball_bottom_entered = true;
+                            bottom_check = !bottom_check;
+                            Log.d("BALL",  "bottom check: " + bottom_check);
+                        }
+                        if (ball_bottom_entered && !checkPassThroughRim(ball.getX() - 63, ball_b.y)) {
+                            ball_bottom_entered = false;
                         }
 
-                        if ( hoop_l.y == Math.round(ball_t.y) && Math.round(ball_t.x) < hoop_r.x && Math.round(ball_t.x) > hoop_l.x ){
-                            Log.d("test2",  "2 est validé : " );
-                            top_check = true;
+                        if (!ball_top_entered && checkPassThroughRim(ball.getX() - 63, ball_t.y)) {
+                            ball_top_entered = true;
+                            top_check = !top_check;
+                            Log.d("BALL",  "top check: " + top_check);
+
+                        }
+                        if (ball_top_entered && !checkPassThroughRim(ball.getX() - 63, ball_t.y)) {
+                            ball_top_entered = false;
+                            if (!bottom_check) {
+                                top_check = false;
+                            }
                         }
 
 
@@ -165,16 +225,48 @@ public class Niveau1 extends AppCompatActivity {
                 }
                 return true; // Retourner true pour indiquer que l'événement a été consommé
             }
-        });
 
-
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        // Code à exécuter lorsque l'activité devient visible à l'utilisateur
+        // Par exemple, vous pouvez effectuer des opérations comme charger des données, démarrer des services, etc.
+        // Assurez-vous de ne pas exécuter de code intensif en ressources ici pour ne pas ralentir l'ouverture de l'activité.
         });
     }
+
+
+
+
+
+
+    private boolean checkPassThroughRim(float x, float y) {
+
+        //Log.d("BALL",  "Verifclass: ");
+
+        //Log.d("Raw X",  "X : " + x );
+        //Log.d("Raw Y",  "Y : " + y );
+
+
+        //Log.d("LEFT",  "X : " + hoop_l.x );
+        //Log.d("LEFT",  "Y : " + hoop_l.y );
+
+        //Log.d("RIGHT",  "X : " + hoop_r.x );
+        //Log.d("RIGHT",  "Y : " + hoop_r.y);
+
+        if (y > hoop_l.y && y < hoop_l.y + offset && x > hoop_l.x && x < hoop_r.x){
+            //Log.d("BALoiuklthrhthgtrhgtrhtrhtrhtrhtrhrtL",  "Ver if: ");
+
+
+            return true;
+
+        }
+        return false;
+    }
+
+
+
+
+
+
+
 
 
     public void goBack(View view){
