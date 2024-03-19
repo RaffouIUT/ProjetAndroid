@@ -129,6 +129,8 @@ public class Niveau2 extends AppCompatActivity implements View.OnTouchListener {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
+                String key = "Niveau " + niveau + " " + difficulte;
+                ScoreSingleton.getInstance().setScore(key, points, difficulte);
                 Intent intent = new Intent(Niveau2.this, Niveau.class);
 
                 niveau = String.valueOf(Integer.parseInt(niveau) + 1);

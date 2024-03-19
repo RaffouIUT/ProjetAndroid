@@ -74,6 +74,9 @@ public class Niveau extends AppCompatActivity {
     public void retour(View view){
         Intent intent = new Intent(this, Difficultes.class);
 
+        intent.putExtra(DIFFICULTE,difficulte);
+        intent.putExtra(NIVEAU,NIVEAU);
+
         startActivity(intent);
     }
 

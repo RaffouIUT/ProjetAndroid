@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void scoreboard(View view){
-        Intent intent = new Intent(this, Niveau2.class);
+        Intent intent = new Intent(this, Scoreboard.class);
 
         startActivity(intent);
     }

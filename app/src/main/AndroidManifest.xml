@@ -13,6 +13,18 @@
         android:theme="@style/Theme.ProjetAndroid"
         tools:targetApi="31">
         <activity
+            android:name=".ScoreboardDifficile"
+            android:exported="false" />
+        <activity
+            android:name=".ScoreboardMoyen"
+            android:exported="false" />
+        <activity
+            android:name=".ScoreboardFacile"
+            android:exported="false" />
+        <activity
+            android:name=".Scoreboard"
+            android:exported="false" />
+        <activity
             android:name=".Niveau2"
             android:exported="false" />
         <activity
