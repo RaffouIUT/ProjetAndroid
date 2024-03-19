@@ -3,8 +3,11 @@ package com.example.projetandroid;
 import static com.example.projetandroid.Difficultes.DIFFICULTE;
 import static com.example.projetandroid.Difficultes.NIVEAU;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,6 +35,9 @@ public class Niveau1 extends AppCompatActivity {
 
     private ImageView bucket;
 
+    CountDownTimer timer;
+    long secondsRemaining = 0;
+
 
 
 
@@ -46,10 +52,8 @@ public class Niveau1 extends AppCompatActivity {
         difficulte = intent.getStringExtra(DIFFICULTE);
         niveau = intent.getStringExtra(NIVEAU);
         TextView levelNameView = (TextView) findViewById(R.id.levelName);
+        levelNameView.setText("Niveau "+niveau);
         bucket = findViewById(R.id.bucket);
-
-        String levelName = "Level 1";
-        levelNameView.setText(levelName);
 
         // Ball
         ball = findViewById(R.id.ball);
@@ -122,6 +126,43 @@ public class Niveau1 extends AppCompatActivity {
         int secondViewBottom = secondViewTop + secondView.getHeight();
 
         return !(firstViewLeft > secondViewRight || firstViewRight < secondViewLeft || firstViewTop > secondViewBottom || firstViewBottom < secondViewTop);
+    }
+
+    private void startTimer() {
+        timer = new CountDownTimer(Long.MAX_VALUE, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                secondsRemaining++;
+            }
+
+            @Override
+            public void onFinish() {
+                showSuccessDialog();
+            }
+        };
+        timer.start();
+    }
+
+    private void showSuccessDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Félicitations !");
+        builder.setMessage("Vous avez réussi en " + secondsRemaining + " secondes !");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                Intent intent = new Intent(Niveau1.this, Niveau.class);
+
+                niveau = String.valueOf(Integer.parseInt(niveau) + 1);
+
+                intent.putExtra(DIFFICULTE,difficulte);
+                intent.putExtra(NIVEAU,niveau);
+
+                startActivity(intent);
+            }
+        });
+        builder.setCancelable(false);
+        builder.show();
     }
 
     public void goBack(View view){

@@ -31,8 +31,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void scoreboard(){
+    public void scoreboard(View view){
+        Intent intent = new Intent(this, Niveau2.class);
 
+        startActivity(intent);
     }
 
     public void connexion(){

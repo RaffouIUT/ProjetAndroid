@@ -54,4 +54,15 @@
         app:layout_constraintVertical_bias="0.858"
         app:srcCompat="@android:drawable/ic_menu_delete" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="111dp"
+        android:onClick="nextLevel"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/retour" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

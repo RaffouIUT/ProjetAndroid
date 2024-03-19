@@ -77,8 +77,20 @@ public class Niveau extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void choixNiveau(View view){
+    public void lancerNiveau1(View view){
         Intent intent = new Intent(this, Niveau1.class);
+
+        ImageView niveau = (ImageView) view;
+        String niv = niveau.getContentDescription().toString();
+
+        intent.putExtra(DIFFICULTE,difficulte);
+        intent.putExtra(NIVEAU,niv);
+
+        startActivity(intent);
+    }
+
+    public void lancerNiveau2(View view){
+        Intent intent = new Intent(this, Niveau2.class);
 
         ImageView niveau = (ImageView) view;
         String niv = niveau.getContentDescription().toString();
