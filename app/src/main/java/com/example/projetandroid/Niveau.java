@@ -5,6 +5,7 @@ import static com.example.projetandroid.Difficultes.NIVEAU;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -94,6 +95,21 @@ public class Niveau extends AppCompatActivity {
 
         ImageView niveau = (ImageView) view;
         String niv = niveau.getContentDescription().toString();
+
+        intent.putExtra(DIFFICULTE,difficulte);
+        intent.putExtra(NIVEAU,niv);
+
+        startActivity(intent);
+    }
+
+
+    public void lancerNiveau3(View view){
+        Intent intent = new Intent(this, Niveau3.class);
+
+
+        ImageView niveau = (ImageView) view;
+        String niv = niveau.getContentDescription().toString();
+        Log.d("niveau",  "Niv : " + niv);
 
         intent.putExtra(DIFFICULTE,difficulte);
         intent.putExtra(NIVEAU,niv);

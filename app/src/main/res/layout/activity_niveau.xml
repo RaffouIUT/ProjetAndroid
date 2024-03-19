@@ -82,10 +82,12 @@
         android:layout_marginTop="250dp"
         android:clickable="false"
         android:contentDescription="3"
+        android:onClick="lancerNiveau3"
         android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/niv2"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/trois" />
+        app:srcCompat="@drawable/trois"
+        tools:ignore="NotSibling" />
 
     <ImageView
         android:id="@+id/niv4"

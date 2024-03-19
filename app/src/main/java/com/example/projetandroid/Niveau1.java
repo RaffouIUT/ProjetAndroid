@@ -7,7 +7,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Point;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -65,6 +64,8 @@ public class Niveau1 extends AppCompatActivity{
     CountDownTimer timer;
     long secondsRemaining = 0;
 
+    int points = 1000;
+
 
 
 
@@ -82,6 +83,7 @@ public class Niveau1 extends AppCompatActivity{
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        startTimer();
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -218,7 +220,7 @@ public class Niveau1 extends AppCompatActivity{
 
 
                         if (top_check && bottom_check){
-                            Log.d("TAG", "Validéeeeeee");
+                            showSuccessDialog();
 
                         }
 
@@ -290,8 +292,14 @@ public class Niveau1 extends AppCompatActivity{
 
     private void showSuccessDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        if(secondsRemaining > 15){
+            points = points - ((int) (secondsRemaining)-15) * 10;
+            if(points < 100){
+                points = 100;
+            }
+        }
         builder.setTitle("Félicitations !");
-        builder.setMessage("Vous avez réussi en " + secondsRemaining + " secondes !");
+        builder.setMessage("Vous avez réussi en " + secondsRemaining + " secondes !\nVous avez " + points + " points !");
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
