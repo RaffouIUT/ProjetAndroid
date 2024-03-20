@@ -43,7 +43,7 @@
         android:layout_marginStart="130dp"
         android:layout_marginEnd="131dp"
         android:layout_marginBottom="106dp"
-        android:onClick="connexion"
+        android:clickable="false"
         android:text="CONNEXION"
         app:layout_constraintBottom_toTopOf="@+id/quitter"
         app:layout_constraintEnd_toEndOf="parent"

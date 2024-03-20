@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void connexion(){
-
+    public void connexion(View view){
+        //Pas encore implémenté
     }
 
     public void quitter(){
