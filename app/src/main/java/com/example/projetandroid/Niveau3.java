@@ -5,6 +5,7 @@ import static com.example.projetandroid.Difficultes.NIVEAU;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ public class Niveau3 extends AppCompatActivity implements BrightnessObserver.Bri
     private String niveau = "";
     private String difficulte = "";
     private Button winButton;
+    private boolean win = false;
     private ImageView gelView;
 
     private BrightnessObserver brightnessObserver;
@@ -51,8 +53,13 @@ public class Niveau3 extends AppCompatActivity implements BrightnessObserver.Bri
         setContentView(R.layout.activity_niveau3);
 
         winButton = findViewById(R.id.button_win);
+        winButton.setEnabled(false);
         gelView = findViewById(R.id.view_gel);
 
+       /* ContentResolver contentResolver = getContentResolver();
+        int brightnessValue = 150;
+        Settings.System.putInt(contentResolver, Settings.System.SCREEN_BRIGHTNESS, brightnessValue);
+        */
 
         brightnessObserver = new BrightnessObserver(this, this);
         getContentResolver().registerContentObserver(Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS), true, brightnessObserver);
@@ -62,12 +69,14 @@ public class Niveau3 extends AppCompatActivity implements BrightnessObserver.Bri
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        startTimer();
     }
 
     @Override
     public void onBrightnessChanged(int brightness) {
         // Votre logique pour réagir au changement de luminosité ici
         if (brightness >= 200) {
+            winButton.setEnabled(true);
             gelView.setVisibility(View.INVISIBLE);
 
 

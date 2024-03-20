@@ -115,7 +115,6 @@ public class Niveau1 extends AppCompatActivity{
                 int ball_x = location[0];
                 int ball_y = location[1];
 
-                Log.d("LEFT",  "hoop : " + ball_x );
                 ball_t = new PointF(ball.getX(), ball.getY() - ball_radius);
                 ball_b = new PointF(ball.getX(), ball.getY() + ball_radius);
             }
