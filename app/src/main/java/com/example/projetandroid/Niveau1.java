@@ -317,21 +317,18 @@ public class Niveau1 extends AppCompatActivity{
         builder.show();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (timer != null) {
+            timer.cancel();
+        }
+    }
+
     public void goBack(View view){
         Intent intent = new Intent(this, Difficultes.class);
 
         startActivity(intent);
     }
 
-    public void nextLevel(View view){
-        Intent intent = new Intent(this, Niveau.class);
-
-        int niv = Integer.parseInt(niveau) + 1;
-        niveau = String.valueOf(niv);
-
-        intent.putExtra(DIFFICULTE,difficulte);
-        intent.putExtra(NIVEAU,niveau);
-
-        startActivity(intent);
-    }
 }

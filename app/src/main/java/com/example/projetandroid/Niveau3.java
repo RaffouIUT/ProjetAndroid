@@ -23,7 +23,7 @@ import androidx.core.view.WindowInsetsCompat;
 import android.content.Context;
 import android.provider.Settings;
 import android.widget.ImageView;
-
+import android.widget.TextView;
 
 
 public class Niveau3 extends AppCompatActivity implements BrightnessObserver.BrightnessChangeListener {
@@ -55,6 +55,13 @@ public class Niveau3 extends AppCompatActivity implements BrightnessObserver.Bri
         winButton = findViewById(R.id.button_win);
         winButton.setEnabled(false);
         gelView = findViewById(R.id.view_gel);
+
+        Intent intent = getIntent();
+
+        difficulte = intent.getStringExtra(DIFFICULTE);
+        niveau = intent.getStringExtra(NIVEAU);
+        TextView levelNameView = (TextView) findViewById(R.id.levelName);
+        levelNameView.setText("Niveau "+niveau);
 
        /* ContentResolver contentResolver = getContentResolver();
         int brightnessValue = 150;
@@ -127,7 +134,13 @@ public class Niveau3 extends AppCompatActivity implements BrightnessObserver.Bri
         builder.show();
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (timer != null) {
+            timer.cancel();
+        }
+    }
 
     public void goBack(View view) {
         Intent intent = new Intent(this, Difficultes.class);
@@ -135,17 +148,6 @@ public class Niveau3 extends AppCompatActivity implements BrightnessObserver.Bri
         startActivity(intent);
     }
 
-    public void nextLevel(View view) {
-        Intent intent = new Intent(this, Niveau.class);
-
-        int niv = Integer.parseInt(niveau) + 1;
-        niveau = String.valueOf(niv);
-
-        intent.putExtra(DIFFICULTE, difficulte);
-        intent.putExtra(NIVEAU, niveau);
-
-        startActivity(intent);
-    }
 }
 
 

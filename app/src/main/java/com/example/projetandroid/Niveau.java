@@ -28,7 +28,6 @@ public class Niveau extends AppCompatActivity {
         ImageView niv1 = findViewById(R.id.niv1);
         ImageView niv2 = findViewById(R.id.niv2);
         ImageView niv3 = findViewById(R.id.niv3);
-        ImageView niv4 = findViewById(R.id.niv4);
 
         Intent intent = getIntent();
 
@@ -43,25 +42,16 @@ public class Niveau extends AppCompatActivity {
                 niv1.setVisibility(View.VISIBLE);
                 niv2.setVisibility(View.VISIBLE);
                 niv3.setVisibility(View.INVISIBLE);
-                niv4.setVisibility(View.INVISIBLE);
                 break;
             case "3":
                 niv1.setVisibility(View.VISIBLE);
                 niv2.setVisibility(View.VISIBLE);
                 niv3.setVisibility(View.VISIBLE);
-                niv4.setVisibility(View.INVISIBLE);
-                break;
-            case "4":
-                niv1.setVisibility(View.VISIBLE);
-                niv2.setVisibility(View.VISIBLE);
-                niv3.setVisibility(View.VISIBLE);
-                niv4.setVisibility(View.VISIBLE);
                 break;
             default:
                 niv1.setVisibility(View.VISIBLE);
                 niv2.setVisibility(View.INVISIBLE);
                 niv3.setVisibility(View.INVISIBLE);
-                niv4.setVisibility(View.INVISIBLE);
                 break;
         }
 
@@ -112,7 +102,6 @@ public class Niveau extends AppCompatActivity {
 
         ImageView niveau = (ImageView) view;
         String niv = niveau.getContentDescription().toString();
-        Log.d("niveau",  "Niv : " + niv);
 
         intent.putExtra(DIFFICULTE,difficulte);
         intent.putExtra(NIVEAU,niv);

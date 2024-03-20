@@ -89,17 +89,4 @@
         app:srcCompat="@drawable/trois"
         tools:ignore="NotSibling" />
 
-    <ImageView
-        android:id="@+id/niv4"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="250dp"
-        android:clickable="false"
-        android:contentDescription="4"
-        android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/niv3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/quatre" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
