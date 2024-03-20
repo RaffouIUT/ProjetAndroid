@@ -8,31 +8,16 @@
     tools:context=".Niveau">
 
     <Button
-        android:id="@+id/difficulte"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="131dp"
-        android:checkable="false"
-        android:clickable="false"
-        android:text="DIFFICULTE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/diffChoisie"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginStart="130dp"
-        android:layout_marginTop="35dp"
         android:layout_marginEnd="131dp"
         android:clickable="false"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/difficulte" />
+        tools:layout_editor_absoluteY="120dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/retour"

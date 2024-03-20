@@ -36,7 +36,7 @@
         android:id="@+id/levelName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Level 3"
+        android:text="Niveau 3"
         app:layout_constraintBottom_toBottomOf="@+id/retour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

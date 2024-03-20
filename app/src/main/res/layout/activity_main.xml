@@ -7,36 +7,34 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
+    <ImageView
         android:id="@+id/jouer"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginStart="130dp"
-        android:layout_marginTop="106dp"
         android:layout_marginEnd="131dp"
         android:layout_marginBottom="106dp"
         android:onClick="jouer"
-        android:text="JOUER"
         app:layout_constraintBottom_toTopOf="@+id/scoreboard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/base_button" />
 
-    <Button
+    <ImageView
         android:id="@+id/scoreboard"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginEnd="131dp"
         android:layout_marginBottom="106dp"
         android:onClick="scoreboard"
-        android:text="SCOREBOARD"
         app:layout_constraintBottom_toTopOf="@+id/connexion"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jouer" />
+        app:layout_constraintTop_toBottomOf="@+id/jouer"
+        app:srcCompat="@drawable/base_button" />
 
-    <Button
+    <ImageView
         android:id="@+id/connexion"
         android:layout_width="150dp"
         android:layout_height="50dp"
@@ -44,24 +42,67 @@
         android:layout_marginEnd="131dp"
         android:layout_marginBottom="106dp"
         android:clickable="false"
-        android:text="CONNEXION"
         app:layout_constraintBottom_toTopOf="@+id/quitter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scoreboard" />
+        app:layout_constraintTop_toBottomOf="@+id/scoreboard"
+        app:srcCompat="@drawable/base_button" />
 
-    <Button
+    <ImageView
         android:id="@+id/quitter"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginStart="130dp"
         android:layout_marginEnd="131dp"
-        android:layout_marginBottom="106dp"
         android:onClick="quitter"
-        android:text="QUITTER"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/connexion" />
+        app:layout_constraintTop_toBottomOf="@+id/connexion"
+        app:srcCompat="@drawable/base_button" />
+
+    <TextView
+        android:id="@+id/Scoreboard_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SCOREBOARD"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/scoreboard"
+        app:layout_constraintEnd_toEndOf="@+id/scoreboard"
+        app:layout_constraintStart_toStartOf="@+id/jouer"
+        app:layout_constraintTop_toTopOf="@+id/scoreboard" />
+
+    <TextView
+        android:id="@+id/connexion_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CONNEXION"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/connexion"
+        app:layout_constraintEnd_toEndOf="@+id/connexion"
+        app:layout_constraintStart_toStartOf="@+id/connexion"
+        app:layout_constraintTop_toTopOf="@+id/connexion" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QUITTER"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/quitter"
+        app:layout_constraintEnd_toEndOf="@+id/quitter"
+        app:layout_constraintStart_toStartOf="@+id/quitter"
+        app:layout_constraintTop_toTopOf="@+id/quitter" />
+
+    <TextView
+        android:id="@+id/play_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JOUER"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/jouer"
+        app:layout_constraintEnd_toEndOf="@+id/jouer"
+        app:layout_constraintStart_toStartOf="@+id/jouer"
+        app:layout_constraintTop_toTopOf="@+id/jouer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

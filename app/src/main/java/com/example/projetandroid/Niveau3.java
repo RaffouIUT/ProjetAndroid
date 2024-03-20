@@ -43,8 +43,8 @@ public class Niveau3 extends AppCompatActivity implements BrightnessObserver.Bri
     int points = 1000;
 
 
-    //winButton = findViewById(R.id.button_win);
-    //gelView = findViewById(R.id.view_gel);
+
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {

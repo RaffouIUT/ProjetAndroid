@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         //Pas encore implémenté
     }
 
-    public void quitter(){
+    public void quitter(View view){
         finish();
     }
 }

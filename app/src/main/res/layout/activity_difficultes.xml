@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:contentDescription="DIFFICILE"
     tools:context=".Difficultes">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -20,60 +21,86 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/en_arriere" />
 
-    <Button
-        android:id="@+id/difficulte"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="106dp"
-        android:layout_marginEnd="131dp"
-        android:layout_marginBottom="106dp"
-        android:clickable="false"
-        android:text="DIFFICULTE"
-        app:layout_constraintBottom_toTopOf="@+id/facile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
+    <ImageView
         android:id="@+id/facile"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginStart="130dp"
         android:layout_marginEnd="131dp"
         android:layout_marginBottom="106dp"
+        android:contentDescription="FACILE"
         android:onClick="facile"
-        android:text="FACILE"
         app:layout_constraintBottom_toTopOf="@+id/moyen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/difficulte" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/easy_button" />
 
-    <Button
+    <ImageView
         android:id="@+id/moyen"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginStart="130dp"
         android:layout_marginEnd="131dp"
         android:layout_marginBottom="106dp"
+        android:contentDescription="MOYEN"
         android:onClick="moyen"
-        android:text="MOYEN"
         app:layout_constraintBottom_toTopOf="@+id/difficile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/facile" />
+        app:layout_constraintTop_toBottomOf="@+id/facile"
+        app:srcCompat="@drawable/medium_button" />
 
-    <Button
+
+    <ImageView
         android:id="@+id/difficile"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginStart="130dp"
         android:layout_marginEnd="131dp"
-        android:layout_marginBottom="106dp"
+        android:contentDescription="DIFFICILE"
         android:onClick="difficile"
-        android:text="DIFFICILE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/moyen" />
+        app:layout_constraintTop_toBottomOf="@+id/moyen"
+        app:srcCompat="@drawable/hard_button" />
+
+    <TextView
+        android:id="@+id/medium_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MOYEN"
+        android:textColor="#FFFFFF"
+        android:textColorLink="@color/red"
+        app:layout_constraintBottom_toBottomOf="@+id/moyen"
+        app:layout_constraintEnd_toEndOf="@+id/moyen"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/moyen"
+        app:layout_constraintTop_toTopOf="@+id/moyen"
+        app:layout_constraintVertical_bias="0.483" />
+
+    <TextView
+        android:id="@+id/easy_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FACILE"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/facile"
+        app:layout_constraintEnd_toEndOf="@+id/facile"
+        app:layout_constraintStart_toStartOf="@+id/facile"
+        app:layout_constraintTop_toTopOf="@+id/facile" />
+
+    <TextView
+        android:id="@+id/hard_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DIFFICILE"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/difficile"
+        app:layout_constraintEnd_toEndOf="@+id/difficile"
+        app:layout_constraintStart_toStartOf="@+id/difficile"
+        app:layout_constraintTop_toTopOf="@+id/difficile" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

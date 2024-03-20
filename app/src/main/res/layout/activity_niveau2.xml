@@ -58,21 +58,21 @@
             android:layout_height="87dp"
             android:layout_marginTop="20dp"
             android:visibility="invisible"
-            app:srcCompat="@drawable/une" />
+            app:srcCompat="@drawable/number_1" />
 
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="match_parent"
             android:layout_height="87dp"
             android:visibility="invisible"
-            app:srcCompat="@drawable/deux" />
+            app:srcCompat="@drawable/number_2" />
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="match_parent"
             android:layout_height="87dp"
             android:visibility="invisible"
-            app:srcCompat="@drawable/trois" />
+            app:srcCompat="@drawable/number_3" />
 
         <Button
             android:id="@+id/bouton"
@@ -86,17 +86,17 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="87dp"
             android:visibility="invisible"
-            app:srcCompat="@drawable/quatre" />
+            app:srcCompat="@drawable/number_4" />
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="match_parent"
             android:layout_height="87dp"
             android:visibility="invisible"
-            app:srcCompat="@drawable/cinq" />
+            app:srcCompat="@drawable/number_5" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -104,7 +104,7 @@
             android:layout_height="87dp"
             android:layout_marginBottom="20dp"
             android:visibility="invisible"
-            app:srcCompat="@drawable/numero_6" />
+            app:srcCompat="@drawable/number_6" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

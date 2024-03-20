@@ -33,8 +33,8 @@ public class Niveau1 extends AppCompatActivity{
     private String niveau = "";
     private String difficulte = "";
 
-    private float x, y; // Variables pour stocker les coordonnées de la balle
-    private ImageView ball; // Renommer l'imageView en "ball"
+    private float x, y;
+    private ImageView ball;
     private ImageView hoopfront;
     private View bucket;
 
