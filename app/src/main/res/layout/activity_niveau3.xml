@@ -5,7 +5,22 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="false"
     android:onClick="showSuccessDialog">
+
+    <ImageView
+        android:id="@+id/color_text"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginEnd="131dp"
+        android:clickable="false"
+        app:layout_constraintBottom_toBottomOf="@+id/retour"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/retour"
+        app:layout_constraintVertical_bias="0.029"
+        app:srcCompat="@drawable/base_button" />
 
     <ImageView
         android:id="@+id/boutonAide"
@@ -37,10 +52,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Niveau 3"
-        app:layout_constraintBottom_toBottomOf="@+id/retour"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/retour" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/color_text"
+        app:layout_constraintEnd_toEndOf="@+id/color_text"
+        app:layout_constraintStart_toStartOf="@+id/color_text"
+        app:layout_constraintTop_toTopOf="@+id/color_text" />
 
     <Button
         android:id="@+id/button_win"
@@ -59,7 +75,8 @@
         android:id="@+id/view_gel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:alpha="0.8"
+        android:alpha="0.65"
+        android:clickable="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

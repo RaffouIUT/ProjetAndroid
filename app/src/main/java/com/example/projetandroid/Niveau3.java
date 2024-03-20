@@ -25,6 +25,8 @@ import android.provider.Settings;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 
 public class Niveau3 extends AppCompatActivity implements BrightnessObserver.BrightnessChangeListener {
 
@@ -63,6 +65,19 @@ public class Niveau3 extends AppCompatActivity implements BrightnessObserver.Bri
         TextView levelNameView = (TextView) findViewById(R.id.levelName);
         levelNameView.setText("Niveau "+niveau);
         ImageView aide = findViewById(R.id.boutonAide);
+
+
+        ImageView diffChoisie = findViewById(R.id.color_text);
+
+
+        if (Objects.equals(difficulte, "FACILE")) {
+            diffChoisie.setImageResource(R.drawable.easy_button);
+
+        } else if (Objects.equals(difficulte, "MOYEN")) {
+            diffChoisie.setImageResource(R.drawable.medium_button);
+        } else {
+            diffChoisie.setImageResource(R.drawable.hard_button);
+        }
 
         if(difficulte.equals("DIFFICILE")){
             aide.setVisibility(View.INVISIBLE);

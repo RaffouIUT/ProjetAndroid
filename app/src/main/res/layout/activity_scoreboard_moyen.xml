@@ -7,15 +7,29 @@
     android:layout_height="match_parent"
     tools:context=".ScoreboardMoyen">
 
+    <ImageView
+        android:id="@+id/moyen"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:contentDescription="MOYEN"
+        android:onClick="moyen"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.029"
+        app:srcCompat="@drawable/medium_button" />
+
     <TextView
         android:id="@+id/difficulty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/retour"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/retour" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/moyen"
+        app:layout_constraintEnd_toEndOf="@+id/moyen"
+        app:layout_constraintStart_toStartOf="@+id/moyen"
+        app:layout_constraintTop_toTopOf="@+id/moyen" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/retour"
@@ -31,6 +45,7 @@
         app:srcCompat="@drawable/en_arriere" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="413dp"
         android:layout_height="628dp"
         android:layout_marginTop="100dp"

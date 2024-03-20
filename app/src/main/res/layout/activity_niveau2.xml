@@ -8,6 +8,18 @@
     tools:context=".Niveau2">
 
     <ImageView
+        android:id="@+id/color_text"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:clickable="false"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="@+id/boutonAide"
+        app:layout_constraintStart_toStartOf="@+id/retour"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.029"
+        app:srcCompat="@drawable/base_button" />
+
+    <ImageView
         android:id="@+id/boutonAide"
         android:layout_width="59dp"
         android:layout_height="59dp"
@@ -37,12 +49,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/retour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/retour" />
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="413dp"
         android:layout_height="628dp"
         android:layout_marginTop="100dp"

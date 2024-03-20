@@ -3,18 +3,22 @@ package com.example.projetandroid;
 import static com.example.projetandroid.Difficultes.DIFFICULTE;
 import static com.example.projetandroid.Difficultes.NIVEAU;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.Objects;
 
 public class Niveau extends AppCompatActivity {
 
@@ -33,9 +37,20 @@ public class Niveau extends AppCompatActivity {
 
         difficulte = intent.getStringExtra(DIFFICULTE);
         NIVEAU = intent.getStringExtra(NIVEAU);
+        ImageView diffChoisie = findViewById(R.id.diffChoisie);
 
-        Button diffChoisie = findViewById(R.id.diffChoisie);
-        diffChoisie.setText(difficulte);
+
+
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) TextView diff_text = findViewById(R.id.diff_texte);
+        diff_text.setText(difficulte);
+        if (Objects.equals(difficulte, "FACILE")) {
+            diffChoisie.setImageResource(R.drawable.easy_button);
+
+        } else if (Objects.equals(difficulte, "MOYEN")) {
+            diffChoisie.setImageResource(R.drawable.medium_button);
+        } else {
+            diffChoisie.setImageResource(R.drawable.hard_button);
+        }
 
         switch (NIVEAU){
             case "2":

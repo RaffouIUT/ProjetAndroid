@@ -68,6 +68,8 @@ public class Niveau1 extends AppCompatActivity{
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -75,6 +77,7 @@ public class Niveau1 extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_niveau1);
+
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -98,6 +101,20 @@ public class Niveau1 extends AppCompatActivity{
         TextView levelNameView = (TextView) findViewById(R.id.levelName);
         levelNameView.setText("Niveau "+niveau);
         ImageView aide = findViewById(R.id.boutonAide);
+
+        ImageView diffChoisie = findViewById(R.id.color_text);
+
+
+        if (Objects.equals(difficulte, "FACILE")) {
+            diffChoisie.setImageResource(R.drawable.easy_button);
+
+        } else if (Objects.equals(difficulte, "MOYEN")) {
+            diffChoisie.setImageResource(R.drawable.medium_button);
+        } else {
+            diffChoisie.setImageResource(R.drawable.hard_button);
+        }
+
+
 
         if(difficulte.equals("DIFFICILE")){
             aide.setVisibility(View.INVISIBLE);
