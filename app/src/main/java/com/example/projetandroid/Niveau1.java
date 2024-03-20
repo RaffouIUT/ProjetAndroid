@@ -25,8 +25,7 @@ import androidx.core.view.WindowInsetsCompat;
 import android.view.MotionEvent;
 import android.util.Log;
 
-
-
+import java.util.Objects;
 
 
 public class Niveau1 extends AppCompatActivity{
@@ -98,6 +97,12 @@ public class Niveau1 extends AppCompatActivity{
         niveau = intent.getStringExtra(NIVEAU);
         TextView levelNameView = (TextView) findViewById(R.id.levelName);
         levelNameView.setText("Niveau "+niveau);
+        ImageView aide = findViewById(R.id.boutonAide);
+
+        if(difficulte.equals("DIFFICILE")){
+            aide.setVisibility(View.INVISIBLE);
+        }
+
         bucket = findViewById(R.id.bucket);
 
         // Ball
@@ -266,13 +271,52 @@ public class Niveau1 extends AppCompatActivity{
         return false;
     }
 
+    public void aide(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        if(!difficulte.equals("DIFFICILE")){
+            // Bouton "Afficher l'aide"
+            builder.setPositiveButton("Afficher l'aide", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    AlertDialog.Builder builder2 = new AlertDialog.Builder(Niveau1.this);
+                    builder2.setTitle("Aide");
+                    builder2.setMessage("Le seau ne semble pas vide");
+                    secondsRemaining += 15;
+                    builder2.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss(); // Ferme la boîte de dialogue
+                        }
+                    });
+                    builder2.setCancelable(false);
+                    builder2.show();
+                    dialog.dismiss(); // Ferme la boîte de dialogue
+                }
+            });
 
+            // Bouton "Skip le niveau"
+            if(difficulte.equals("FACILE")) {
+                builder.setNegativeButton("Skip le niveau", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Niveau1.this, Niveau.class);
 
+                        niveau = String.valueOf(Integer.parseInt(niveau) + 1);
 
+                        intent.putExtra(DIFFICULTE, difficulte);
+                        intent.putExtra(NIVEAU, niveau);
 
+                        startActivity(intent);
+                        dialog.dismiss(); // Ferme la boîte de dialogue
+                    }
+                });
+            }
 
+            builder.setCancelable(false);
+            builder.show();
+        }
 
-
+    }
 
     private void startTimer() {
         timer = new CountDownTimer(Long.MAX_VALUE, 1000) {
@@ -328,7 +372,10 @@ public class Niveau1 extends AppCompatActivity{
     }
 
     public void goBack(View view){
-        Intent intent = new Intent(this, Difficultes.class);
+        Intent intent = new Intent(this, Niveau.class);
+
+        intent.putExtra(DIFFICULTE,difficulte);
+        intent.putExtra(NIVEAU,niveau);
 
         startActivity(intent);
     }

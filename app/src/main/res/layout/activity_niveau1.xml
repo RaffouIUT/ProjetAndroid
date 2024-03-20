@@ -15,7 +15,7 @@
         android:layout_marginTop="16dp"
         android:clickable="true"
         android:contentDescription="bouton retour"
-        android:onClick="retour"
+        android:onClick="goBack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/en_arriere" />
@@ -29,6 +29,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/retour" />
+
+    <ImageView
+        android:id="@+id/boutonAide"
+        android:layout_width="59dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="boutonAide"
+        android:onClick="aide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/idee_ampoule" />
 
     <ImageView
         android:id="@+id/hoopback"
@@ -103,16 +115,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.815"
         app:srcCompat="@drawable/seau" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="111dp"
-        android:onClick="nextLevel"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/retour" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

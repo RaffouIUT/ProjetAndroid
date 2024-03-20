@@ -42,6 +42,11 @@ public class Niveau2 extends AppCompatActivity implements View.OnTouchListener {
         niveau = intent.getStringExtra(NIVEAU);
         TextView levelNameView = (TextView) findViewById(R.id.levelName);
         levelNameView.setText("Niveau "+niveau);
+        ImageView aide = findViewById(R.id.boutonAide);
+
+        if(difficulte.equals("DIFFICILE")){
+            aide.setVisibility(View.INVISIBLE);
+        }
 
         imageViews = new ImageView[]{
                 findViewById(R.id.imageView),
@@ -98,6 +103,53 @@ public class Niveau2 extends AppCompatActivity implements View.OnTouchListener {
         for (ImageView imageView : imageViews) {
             imageView.setVisibility(View.INVISIBLE);
         }
+    }
+
+    public void aide(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        if(!difficulte.equals("DIFFICILE")){
+            // Bouton "Afficher l'aide"
+            builder.setPositiveButton("Afficher l'aide", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    AlertDialog.Builder builder2 = new AlertDialog.Builder(Niveau2.this);
+                    builder2.setTitle("Aide");
+                    builder2.setMessage("Ce bouton semble bizarre");
+                    secondsRemaining += 15;
+                    builder2.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss(); // Ferme la boîte de dialogue
+                        }
+                    });
+                    builder2.setCancelable(false);
+                    builder2.show();
+                    dialog.dismiss(); // Ferme la boîte de dialogue
+                }
+            });
+
+            // Bouton "Skip le niveau"
+            if(difficulte.equals("FACILE")) {
+                builder.setNegativeButton("Skip le niveau", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Niveau2.this, Niveau.class);
+
+                        niveau = String.valueOf(Integer.parseInt(niveau) + 1);
+
+                        intent.putExtra(DIFFICULTE, difficulte);
+                        intent.putExtra(NIVEAU, niveau);
+
+                        startActivity(intent);
+                        dialog.dismiss(); // Ferme la boîte de dialogue
+                    }
+                });
+            }
+
+            builder.setCancelable(false);
+            builder.show();
+        }
+
     }
 
     private void startTimer() {

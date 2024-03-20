@@ -7,6 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".Niveau2">
 
+    <ImageView
+        android:id="@+id/boutonAide"
+        android:layout_width="59dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="boutonAide"
+        android:onClick="aide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/idee_ampoule" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/retour"
         android:layout_width="wrap_content"

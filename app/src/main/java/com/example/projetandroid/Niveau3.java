@@ -62,6 +62,11 @@ public class Niveau3 extends AppCompatActivity implements BrightnessObserver.Bri
         niveau = intent.getStringExtra(NIVEAU);
         TextView levelNameView = (TextView) findViewById(R.id.levelName);
         levelNameView.setText("Niveau "+niveau);
+        ImageView aide = findViewById(R.id.boutonAide);
+
+        if(difficulte.equals("DIFFICILE")){
+            aide.setVisibility(View.INVISIBLE);
+        }
 
        /* ContentResolver contentResolver = getContentResolver();
         int brightnessValue = 150;
@@ -88,6 +93,53 @@ public class Niveau3 extends AppCompatActivity implements BrightnessObserver.Bri
 
 
         }
+    }
+
+    public void aide(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        if(!difficulte.equals("DIFFICILE")){
+            // Bouton "Afficher l'aide"
+            builder.setPositiveButton("Afficher l'aide", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    AlertDialog.Builder builder2 = new AlertDialog.Builder(Niveau3.this);
+                    builder2.setTitle("Aide");
+                    builder2.setMessage("Il fait un peu sombre ici");
+                    secondsRemaining += 15;
+                    builder2.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss(); // Ferme la boîte de dialogue
+                        }
+                    });
+                    builder2.setCancelable(false);
+                    builder2.show();
+                    dialog.dismiss(); // Ferme la boîte de dialogue
+                }
+            });
+
+            // Bouton "Skip le niveau"
+            if(difficulte.equals("FACILE")) {
+                builder.setNegativeButton("Skip le niveau", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Niveau3.this, Niveau.class);
+
+                        niveau = String.valueOf(Integer.parseInt(niveau));
+
+                        intent.putExtra(DIFFICULTE, difficulte);
+                        intent.putExtra(NIVEAU, niveau);
+
+                        startActivity(intent);
+                        dialog.dismiss(); // Ferme la boîte de dialogue
+                    }
+                });
+            }
+
+            builder.setCancelable(false);
+            builder.show();
+        }
+
     }
 
     private void startTimer() {
@@ -147,12 +199,10 @@ public class Niveau3 extends AppCompatActivity implements BrightnessObserver.Bri
     public void goBack(View view) {
         Intent intent = new Intent(this, Difficultes.class);
 
+        intent.putExtra(DIFFICULTE,difficulte);
+        intent.putExtra(NIVEAU,niveau);
+
         startActivity(intent);
     }
 
 }
-
-
-
-
-
