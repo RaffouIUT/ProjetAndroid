@@ -101,7 +101,7 @@ public class Niveau3 extends AppCompatActivity implements BrightnessObserver.Bri
 
     @Override
     public void onBrightnessChanged(int brightness) {
-        // Votre logique pour réagir au changement de luminosité ici
+
         if (brightness >= 200) {
             winButton.setEnabled(true);
             gelView.setVisibility(View.INVISIBLE);
@@ -124,16 +124,16 @@ public class Niveau3 extends AppCompatActivity implements BrightnessObserver.Bri
                     builder2.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss(); // Ferme la boîte de dialogue
+                            dialog.dismiss();
                         }
                     });
                     builder2.setCancelable(false);
                     builder2.show();
-                    dialog.dismiss(); // Ferme la boîte de dialogue
+                    dialog.dismiss();
                 }
             });
 
-            // Bouton "Skip le niveau"
+
             if(difficulte.equals("FACILE")) {
                 builder.setNegativeButton("Skip le niveau", new DialogInterface.OnClickListener() {
                     @Override
@@ -146,7 +146,7 @@ public class Niveau3 extends AppCompatActivity implements BrightnessObserver.Bri
                         intent.putExtra(NIVEAU, niveau);
 
                         startActivity(intent);
-                        dialog.dismiss(); // Ferme la boîte de dialogue
+                        dialog.dismiss();
                     }
                 });
             }

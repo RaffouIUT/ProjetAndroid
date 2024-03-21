@@ -250,12 +250,10 @@ public class Niveau1 extends AppCompatActivity{
 
                         break;
                 }
-                return true; // Retourner true pour indiquer que l'événement a été consommé
+                return true;
             }
 
-        // Code à exécuter lorsque l'activité devient visible à l'utilisateur
-        // Par exemple, vous pouvez effectuer des opérations comme charger des données, démarrer des services, etc.
-        // Assurez-vous de ne pas exécuter de code intensif en ressources ici pour ne pas ralentir l'ouverture de l'activité.
+
         });
     }
 
@@ -291,7 +289,6 @@ public class Niveau1 extends AppCompatActivity{
     public void aide(View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         if(!difficulte.equals("DIFFICILE")){
-            // Bouton "Afficher l'aide"
             builder.setPositiveButton("Afficher l'aide", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
